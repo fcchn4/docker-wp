@@ -12,7 +12,7 @@ services:
 
   web:
     # image: wordpress
-    build: web/
+    build: ./web
     restart: always
     ports:
       - "8080:80"
@@ -23,7 +23,3 @@ services:
       WORDPRESS_DB_USER: demo
       WORDPRESS_DB_PASSWORD: demo
       WORDPRESS_DB_NAME: demo
-    # deploy:
-    #   restart_policy:
-    #     condition: on-failure
-    #     delay: 15s
