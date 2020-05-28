@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      MYSQL_DATABASE: demo
+      MYSQL_PASSWORD: demo
+      MYSQL_USER: demo    
+
+  web:
+    image: wordpress
+    restart: always
+    ports:
+      - "8080:80"
+    depends_on: 
+      - db
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: demo
+      WORDPRESS_DB_PASSWORD: demo
+      WORDPRESS_DB_NAME: demo
+    # deploy:
+    #   restart_policy:
+    #     condition: on-failure
+    #     delay: 15s
