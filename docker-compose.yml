@@ -11,7 +11,8 @@ services:
       MYSQL_USER: demo    
 
   web:
-    image: wordpress
+    # image: wordpress
+    build: web/
     restart: always
     ports:
       - "8080:80"

@@ -1,6 +1,6 @@
-FROM wordpress:latest
+FROM wordpress
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
-ENTRYPOINT [ "sleep" ]
-CMD [ "10" ]
+ENTRYPOINT [ "docker-entrypoint.sh" ]
+CMD ["%%CMD%%"]
